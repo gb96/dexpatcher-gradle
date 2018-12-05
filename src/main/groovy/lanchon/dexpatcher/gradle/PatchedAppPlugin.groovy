@@ -144,7 +144,7 @@ class PatchedAppPlugin extends AbstractPatcherPlugin {
         // The type of 'apkVariantOutput.packageApplication' is:
         //  -> 'PackageApplication' in Android plugin up to v2.1.3.
         //  -> 'PackageAndroidArtifact' in Android plugin v2.2.0 and higher.
-        return apkVariantOutput.packageAndroidArtifact // .packageApplication
+        return apkVariantOutput.packageApplication
     }
 
     @CompileDynamic

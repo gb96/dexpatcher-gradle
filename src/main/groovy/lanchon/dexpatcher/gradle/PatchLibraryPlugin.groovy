@@ -1,5 +1,5 @@
 /*
- * DexPatcher - Copyright 2015-2017 Rodrigo Balerdi
+ * DexPatcher - Copyright 2015-2018 Rodrigo Balerdi
  * (GNU General Public License version 3 or later)
  *
  * DexPatcher is free software: you can redistribute it and/or modify
@@ -65,6 +65,6 @@ class PatchLibraryPlugin extends AbstractPatcherPlugin {
     }
 
     @Override
-    protected String getScopeForAddedLibs() { 'provided' }
+    protected String getScopeForAddedLibs() { 'compileOnly' }  // 'provided'
 
 }

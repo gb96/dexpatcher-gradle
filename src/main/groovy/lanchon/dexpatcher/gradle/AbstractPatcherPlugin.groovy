@@ -92,7 +92,7 @@ abstract class AbstractPatcherPlugin extends AbstractPlugin {
 
     protected void addDependencies() {
         addDependencies getScopeForAddedLibs(), dexpatcherConfig.resolvedAddedLibDir
-        addDependencies 'provided', dexpatcherConfig.resolvedProvidedLibDir
+        addDependencies 'compileOnly', dexpatcherConfig.resolvedProvidedLibDir // 'provided'
     }
 
     protected abstract String getScopeForAddedLibs()
@@ -106,7 +106,7 @@ abstract class AbstractPatcherPlugin extends AbstractPlugin {
         // Add a non-existent jar file to the 'provided' scope.
         def dedexFile = Resolver.getFile(dexpatcherDir, 'dedex/classes.jar')
         def dedexDependency = project.dependencies.create(project.files(dedexFile))
-        project.configurations.getByName('provided').dependencies.add(dedexDependency)
+        project.configurations.getByName('compileOnly').dependencies.add(dedexDependency) // 'provided'
         // And later copy the dedexed classes of the apk library into that empty slot.
         project.afterEvaluate {
             afterPrepareApkLibrary { PrepareLibraryTask task ->
