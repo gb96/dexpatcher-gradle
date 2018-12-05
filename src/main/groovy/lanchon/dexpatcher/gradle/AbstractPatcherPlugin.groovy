@@ -19,7 +19,7 @@ import lanchon.dexpatcher.gradle.extensions.AbstractPatcherExtension
 
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.api.BaseVariant
-import com.android.build.gradle.internal.tasks.PrepareLibraryTask
+import com.android.build.gradle.tasks.PrepareLibraryTask
 import org.gradle.api.DomainObjectSet
 import org.gradle.api.Task
 
