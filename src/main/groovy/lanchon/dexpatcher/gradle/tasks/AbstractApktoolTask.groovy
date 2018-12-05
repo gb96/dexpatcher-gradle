@@ -131,7 +131,7 @@ For smali/baksmali info, see: https://github.com/JesusFreke/smali
         args.add(command)
         def frameworkDir = getFrameworkDir()
         if (frameworkDir) args.addAll(['--frame-path', frameworkDir as String])
-        return args;
+        return args
     }
 
 }

@@ -79,7 +79,7 @@ class PatchedAppPlugin extends AbstractPatcherPlugin {
     }
 
     @Override
-    protected String getScopeForAddedLibs() { 'compile' }
+    protected String getScopeForAddedLibs() { 'implementation' } // 'compile'
 
     private DexpatcherTask createPatchDexTask(ApplicationVariant variant) {
 
@@ -94,13 +94,13 @@ class PatchedAppPlugin extends AbstractPatcherPlugin {
             patchDex.source = apkLibrary.dexDir
         }
 
-        def Set<File> patchedDexFolders = ImmutableSet.of(patchedDexDir)
+        Set<File> patchedDexFolders = ImmutableSet.of(patchedDexDir)
         variant.outputs.each {
             if (it instanceof ApkVariantOutput) {
 
                 //def output = (ApkVariantOutput) it
                 //def packageApp = output.packageApplication
-                def packageApp = getPackageTask(it);
+                def packageApp = getPackageTask(it)
 
                 patchDex.mustRunAfter { packageApp.dependsOn - patchDex }
                 packageApp.dependsOn patchDex
@@ -144,7 +144,7 @@ class PatchedAppPlugin extends AbstractPatcherPlugin {
         // The type of 'apkVariantOutput.packageApplication' is:
         //  -> 'PackageApplication' in Android plugin up to v2.1.3.
         //  -> 'PackageAndroidArtifact' in Android plugin v2.2.0 and higher.
-        return apkVariantOutput.packageApplication
+        return apkVariantOutput.packageAndroidArtifact // .packageApplication
     }
 
     @CompileDynamic

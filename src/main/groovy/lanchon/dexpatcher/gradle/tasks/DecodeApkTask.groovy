@@ -85,7 +85,7 @@ class DecodeApkTask extends AbstractApktoolTask {
         if (getForceOverwrite()) args.add('--force')
         args.addAll(getExtraArgs())
         args.add(getApkFile() as String)
-        return args;
+        return args
     }
 
 

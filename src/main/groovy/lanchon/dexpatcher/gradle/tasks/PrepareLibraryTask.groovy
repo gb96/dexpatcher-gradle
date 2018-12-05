@@ -21,7 +21,7 @@ import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.Project
 
-public class PrepareLibraryTask extends DefaultTask {
+class PrepareLibraryTask extends DefaultTask {
     @InputFile
     File bundle
     @OutputDirectory
@@ -32,7 +32,7 @@ public class PrepareLibraryTask extends DefaultTask {
     }
 	
 	// Extracted from com.android.build.gradle.internal.LibraryCache
-	public static void unzipAar(File bundle, File folderOut, Project project) {
+	static void unzipAar(File bundle, File folderOut, Project project) {
 		folderOut.deleteDir()
 		folderOut.mkdirs()
 		project.copy {

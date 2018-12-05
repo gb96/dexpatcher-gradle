@@ -61,7 +61,7 @@ class BuildApkTask extends AbstractApktoolTask {
         if (getForceCleanBuild()) args.add('--force-all')
         args.addAll(getExtraArgs())
         args.add(getInputDir() as String)
-        return args;
+        return args
     }
 
     @Override void beforeExec() {
