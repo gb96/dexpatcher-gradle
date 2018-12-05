@@ -16,10 +16,10 @@ import java.util.zip.ZipOutputStream
 import groovy.transform.CompileStatic
 
 import lanchon.dexpatcher.gradle.extensions.AbstractPatcherExtension
+import lanchon.dexpatcher.gradle.tasks.PrepareLibraryTask
 
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.api.BaseVariant
-import com.android.build.gradle.tasks.PrepareLibraryTask
 import org.gradle.api.DomainObjectSet
 import org.gradle.api.Task
 
@@ -115,7 +115,7 @@ abstract class AbstractPatcherPlugin extends AbstractPlugin {
                     Files.copy(apkLibraryUnchecked.dedexFile.toPath(), dedexFile.toPath(),
                             StandardCopyOption.REPLACE_EXISTING)
                 } else {
-                    new ZipOutputStream(new FileOutputStream(dedexFile)).close();
+                    new ZipOutputStream(new FileOutputStream(dedexFile)).close()
                 }
             }
         }
