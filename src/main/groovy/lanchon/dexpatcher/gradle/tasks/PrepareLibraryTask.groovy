@@ -28,11 +28,10 @@ public class PrepareLibraryTask extends DefaultTask {
     File explodedDir
     @TaskAction
     def prepare() {
-        //LibraryCache.getCache().unzipLibrary(this.name, project, getBundle(), getExplodedDir())
-        LibraryCache.unzipAar(getBundle(), getExplodedDir(), project)
+        /* LibraryCache. */ unzipAar(getBundle(), getExplodedDir(), project)
     }
 	
-	// Adapted from com.android.build.gradle.internal.LibraryCache
+	// Extracted from com.android.build.gradle.internal.LibraryCache
 	public static void unzipAar(File bundle, File folderOut, Project project) {
 		folderOut.deleteDir()
 		folderOut.mkdirs()
